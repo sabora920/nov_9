@@ -1,0 +1,55 @@
+
+video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background: no-repeat;
+    background-size: cover;
+    transition: 1s opacity;
+}
+
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background: rgba(171, 230, 238, 0.5);    
+}
+
+button{
+    position: relative;
+    display: block;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top:20px;
+}
+
+.placeAndScore {
+    margin-bottom:10px;
+}
+
+form {
+    padding: 20px;
+}
+
+.title {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+h1 {
+    text-shadow: rgb(90, 88, 233) 0 0 10px;
+}
+
+.errorMessage {
+    color: red;
+}
+
+
