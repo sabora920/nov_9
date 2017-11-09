@@ -78,7 +78,44 @@ const STORE =
       score: 0
     };
 
+    
 
+    const QUESTIONS = {
+      results:[]
+    }
+    
+    
+    
+    //create function that recieves token and stores it into a variable
+    //the session token would be available for any future token calls like if they reset the quiz
+    let sessionToken;
+    function getToken(callback){
+      $.getJSON('https://opentdb.com/api_token.php?command=request', function(apiResponse){
+        if(apiResponse.response_code !== 0){
+          throw new Error(apiResponse.response_message);
+        }
+        sessionToken = apiResponse.token;
+        console.log(sessionToken);
+        callback();
+      });
+    }
+    
+    function getQuestions(){
+      $.getJSON(`https://opentdb.com/api.php?amount=10&token=${sessionToken}`, function(quizApiData){
+        
+        console.log(STORE.questions);
+    
+        let questionsArr = QUESTIONS.results;
+        let oldArr = STORE.questions;
+    
+        questionsArr.push(quizApiData);
+    
+        
+    
+        // handleQuestions(STORE);
+      });
+    }
+    
     
 
 function handleStartPage(){
