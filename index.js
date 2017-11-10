@@ -78,7 +78,7 @@ const STORE =
       score: 0
     };
 
-    
+
 
     const QUESTIONS = {
       results:[]
@@ -102,14 +102,20 @@ const STORE =
     
     function getQuestions(){
       $.getJSON(`https://opentdb.com/api.php?amount=10&token=${sessionToken}`, function(quizApiData){
-        
-        console.log(STORE.questions);
     
         let questionsArr = QUESTIONS.results;
         let oldArr = STORE.questions;
     
         questionsArr.push(quizApiData);
-    
+
+        function mappingFunction(item){
+          return {
+            quest: item.question,
+          }
+        }
+        console.log(questionsArr);
+        const transformedArray = questionsArr.map(mappingFunction);
+        console.log(transformedArray);
         
     
         // handleQuestions(STORE);
@@ -286,3 +292,4 @@ function quizApp(){
 }
 
 $(quizApp);
+getToken(getQuestions);
