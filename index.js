@@ -109,8 +109,9 @@ const STORE =
         questionsArr.push(quizApiData);
 
         function mappingFunction(item){
+          
           return {
-            quest: item.question,
+            quest: item.quest,
           }
         }
         console.log(questionsArr);
